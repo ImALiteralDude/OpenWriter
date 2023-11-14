@@ -1,0 +1,61 @@
+<!doctype HTML>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>OpenWriter</title>
+		<script>
+		var audio1 = new Audio('https://www.dropbox.com/scl/fi/pe5yxcnoyxnmhlea0pbfs/mech-keyboard-02-102918.mp3?rlkey=lgraiiam47fkeym6jow588unu&dl=1');
+		audio1.preload = 'auto';
+		var audio2 = new Audio('https://www.dropbox.com/scl/fi/pe5yxcnoyxnmhlea0pbfs/mech-keyboard-02-102918.mp3?rlkey=lgraiiam47fkeym6jow588unu&dl=1');
+		audio2.preload = 'auto';
+		var audio3 = new Audio('https://www.dropbox.com/scl/fi/pe5yxcnoyxnmhlea0pbfs/mech-keyboard-02-102918.mp3?rlkey=lgraiiam47fkeym6jow588unu&dl=1');
+		audio3.preload = 'auto';
+		var audio4 = new Audio('https://www.dropbox.com/scl/fi/pe5yxcnoyxnmhlea0pbfs/mech-keyboard-02-102918.mp3?rlkey=lgraiiam47fkeym6jow588unu&dl=1');
+		audio4.preload = 'auto';
+		var audioArray = [audio1, audio2, audio3, audio4];
+		</script>
+		<style>
+		.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #04AA6E;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #04AA6D; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+</style>
+	</head>
+	<body style="background-color: #121212; color: #e8e8e8; font-family: Arial Rounded MT;">
+	<div id="whyIsLifePainful" style="display: inline-flex; width: 98vw;">
+	<div id="bodyPillow" style="width: 30vw; display: inline-block; margin-top: 3vh; margin-bottom: 3vh;">
+	<input type="range" min="1" max="100" value="50" class="slider" id="volume-slider" style="margin-bottom: 0px; bottom: 100px; -webkit-appearance: none; appearance: none; width: 30vw; height: 25px; background: #242424; outline: none;">
+	</div>
+	<h1 style="font-family: Arial Rounded MT; display: inline-block; margin-left: 23vh;">OpenWriter</h1>
+	</div>
+			<br>
+		<textarea id="textBox" placeholder="Start typing..." style="border-width:5px;border-color:#a0a0a0a0;border-radius:9px;width: 95vw;height: 85vh; ;font-family: Verdana;font-size: 14px; background-color: #282828; color: inherit;"></textarea>
+
+		<script>
+function playSound() {
+	const randomIndex = Math.floor(Math.random() * audioArray.length);
+  const randomAudio = audioArray[randomIndex];
+  let volume = document.getElementById('volume-slider');
+volume.addEventListener("change", function(e) {
+    randomAudio.volume = volume.value / 100;
+})
+  randomAudio.play();
+}
+
+document.getElementById("textBox")
+      .addEventListener("input", (event) => playSound())
+		</script>
+	</body>
+</html>
